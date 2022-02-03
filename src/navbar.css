@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f9f9f9;
+    padding: 20px;
+}
+.header_logo{
+    object-fit: contain;
+    height: 100px;
+}
+
+.header_text {
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+}
