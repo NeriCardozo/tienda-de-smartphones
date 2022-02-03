@@ -11,11 +11,11 @@ src='https://previews.123rf.com/images/findriyani/findriyani1902/findriyani19020
 />         
 
     <div className="header_text"> <a href="#">Samsung</a></div>
-    <div className="header_text">Apple</div>
-    <div className="header_text">Xiaomi</div>
-    <div className="header_text">Otras marcas</div>
+    <div className="header_text"><a href="#">Apple</a></div>
+    <div className="header_text"><a href="#">Xiaomi</a></div>
+    <div className="header_text"><a href="#">Otras marcas</a></div>
 
-    {/* <CartWidget /> */}
+    <CartWidget />
 
 </div>
   )
