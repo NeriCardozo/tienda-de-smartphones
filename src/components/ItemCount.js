@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
+import CardActions from '@mui/material/CardActions';
+import Typography from '@mui/material/Typography';
 import './ItemCount.css'
  function ItemCount(props)
  
@@ -23,14 +26,13 @@ import './ItemCount.css'
         }
     }
      return ( 
-       
-        <div>
-        <h3>¿Deseas agregar o quitar unidades? Hay {item.stock} disponibles.</h3>
-        <button onClick={addOne}>Sumar</button>
-        <button onClick={substractOne}>Restar</button>
-        <h3>Agregaste {count}</h3>
-        <button onClick={addOne}>Agregar al carrito</button>
-    </div>
+<CardActions>
+  <Button onClick={addOne} size="small">Agregar</Button>
+  <Typography variant="subtitle2" color="text.secondary">
+    Agregaste: {count}
+  </Typography>
+  <Button onClick={substractOne} size="small">Quitar</Button>
+</CardActions>
       );
  }
  
