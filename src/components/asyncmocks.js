@@ -77,7 +77,7 @@ let productos = [
 },
 {id: "5",
     nombre: "Xiaomi Redmi Note 10 5G",
-    marca: "Azul",
+    marca: "Xiaomi",
     color: "Rojo",
     modelo: "Redmi Note 10 5G",
     ram: 4,
@@ -128,6 +128,15 @@ export const getProduct = (id)=> {
         setTimeout(() => {
             resolve(prod)
             console.log(prod)
+        }, 1000)
+    })
+}
+export const getProductsByCategory = (categoryName)=> {
+    return new Promise((resolve) => {
+        const prod = productos.filter((productos)=> {return productos.marca === categoryName})
+        console.log(prod)
+        setTimeout(() => {
+            resolve(prod)
         }, 1000)
     })
 }

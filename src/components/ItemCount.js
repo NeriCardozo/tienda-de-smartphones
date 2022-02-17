@@ -27,11 +27,12 @@ import './ItemCount.css'
     }
      return ( 
 <CardActions>
-  <Button onClick={addOne} size="small">Agregar</Button>
+  <Button onClick={addOne} size="small">+</Button>
   <Typography variant="subtitle2" color="text.secondary">
-    Agregaste: {count}
+{count}
   </Typography>
-  <Button onClick={substractOne} size="small">Quitar</Button>
+  <Button onClick={substractOne} size="small">-</Button>
+  <Button onClick={addOne} size="medium">Agregar al carrito</Button>
 </CardActions>
       );
  }

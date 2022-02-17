@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Item from './Item'
-import ItemCount from './ItemCount';
 import { useParams } from 'react-router-dom';
 import {getProduct} from './asyncmocks.js'
-
+import './ItemDetail.css'
 function ItemDetail() {
     const [producto, setProducto] = useState({});
     const {id} = useParams()
 
     useEffect(() => {
+        setProducto([])
         getProduct(id).then(item => {
             setProducto(item)
         }).catch(err  => {
@@ -19,9 +19,8 @@ function ItemDetail() {
         })          
     }, [id])
 
-    return    <div>
-              <Item producto={producto}/>
-              <ItemCount producto={producto} />
+    return    <div className="itemdetail">
+              <Item producto={producto} id={id}/>
               </div>
 }
 
