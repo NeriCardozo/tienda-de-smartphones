@@ -114,6 +114,13 @@ let productos = [
     url: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-11-pro-5g-global-1.jpg"
 }]
 
+let categories = [
+    {id: "Samsung", title: "Samsung"},
+    {id: "Apple", title: "Apple"},
+    {id: "Xiaomi", title: "Xiaomi"},
+    {id: "Huawei", title: "Huawei"}
+]
+
 export const getProducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -121,22 +128,26 @@ export const getProducts = () => {
         }, 1000)
     })
 }
-
 export const getProduct = (id)=> {
     return new Promise((resolve) => {
         const prod = productos.find(p => p.id === id)
         setTimeout(() => {
             resolve(prod)
-            console.log(prod)
         }, 1000)
     })
 }
 export const getProductsByCategory = (categoryName)=> {
     return new Promise((resolve) => {
         const prod = productos.filter((productos)=> {return productos.marca === categoryName})
-        console.log(prod)
         setTimeout(() => {
             resolve(prod)
+        }, 1000)
+    })
+}
+export const getCategories = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(categories)
         }, 1000)
     })
 }

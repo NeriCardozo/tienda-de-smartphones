@@ -6,25 +6,27 @@ import { useParams } from 'react-router-dom';
 
 function ItemList() {
     const [productos, setProductos] = useState([]);
+    const [loading, setLoading] = useState(true);
     const {categoryName} = useParams()
-    console.log(categoryName)
     
     useEffect(() => {
+        setLoading(true);
         setProductos([]); // Hacemos esto porque sino a veces se traba al navegar entre categorías.
         if (categoryName != null){
             getProductsByCategory(categoryName).then(item => {
                 setProductos(item)
-                console.log(item)
+                setLoading(false)
             }).catch(err  => {
                 console.log(err)
             })
             
             return (() => {
-                setProductos()
+                setProductos([])
             })    
         }else{
             getProducts().then(item => {
                 setProductos(item)
+                setLoading(false)
             }).catch(err  => {
                 console.log(err)
             })
@@ -33,20 +35,14 @@ function ItemList() {
                 setProductos()
             })          
         }
-    }, [categoryName]) // Se actualiza cada vez que detecta un cambio en los parametros de la URL
+    }, [categoryName])
 
-    if (productos.length > 0 ){
-        return(
-            <div className="itemlist">
-            {productos.map( (p)=> 
-            <Item producto={p}/>
-            )}
+    return (
+        <div className="itemlist">
+            {loading ? <h1>Cargando...</h1>:productos.length ? productos.map( (p)=> <Item producto={p}/>):<h1>No se encontraron productos!</h1>}
         </div>
-)   
-}else{
-    return <h1>Cargando...</h1>
-}
-}
+    )
+}   
 
 export default ItemList;
     

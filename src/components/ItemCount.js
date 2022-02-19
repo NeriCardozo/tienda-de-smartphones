@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
@@ -19,7 +19,7 @@ import './ItemCount.css'
         }
     }
     const substractOne = ()=> {
-        if (count != 0){
+        if (count !== 0){
             setCount(count - 1)
         }else{
             alert("No tienes agregado este producto!")
