@@ -11,8 +11,8 @@ function Item(props) {
 
   const item = props.producto;
 
-return (<div className="item">
-  <Card sx={{ maxWidth: 345 }}>
+return (
+  <Card className="item" sx={{ maxWidth: 345 }}>
 <CardMedia
   component="img"
   alt=""
@@ -20,9 +20,9 @@ return (<div className="item">
   image={item.url}
 />
 <CardContent>
-  <Typography gutterBottom variant="h5" component="div">
+  <p>
     {item.nombre}
-  </Typography>
+  </p>
   <Typography variant="body2" color="text.secondary">
     Ram: {item.ram}GB
   </Typography>
@@ -41,7 +41,6 @@ return (<div className="item">
 </CardContent>
 {props.id ? <div><ItemCount producto={item} /></div>: <></>}
 </Card>
-</div>
 )
 }
 

@@ -13,20 +13,25 @@ function NavBar() {
       getCategories().then(cats => {
           setCategories(cats)
         })}
-      },[])
+      },[categories])
 
   return (
-      <div className="header">
-    <Link to="/">
- <img className='header_logo'
-      alt=' '
-      src='https://previews.123rf.com/images/findriyani/findriyani1902/findriyani190200477/116365758-vettore-del-logo-dello-smartphone.jpg?fj=1'
-/>         
-  </Link>
+    <div className="container">
+    <div className="navbar">
+    <div className="logo">
+    <Link to="/"><img className='header_logo'
+      src='./logo.png'
+/></Link>
+</div>
+  <nav>
+    <ul>
     {categories.map((c)=><Category category={c}> </Category>)}
-    
+    <Link to={`/Category/other`}> <li className="header_text">Otras marcas</li></Link>
     <CartWidget />
+    </ul>
+  </nav>
 
+</div>
 </div>
   )
 }

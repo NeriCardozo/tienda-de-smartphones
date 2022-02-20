@@ -1,13 +1,12 @@
 import React from 'react';
 import { MdShoppingCart } from "react-icons/md";
+import './navbar.css'
 
 function CartWidget() {
     return(
-        <div>
-            <a href="#">
+            <li href="#">
             <MdShoppingCart /> 3
-            </a>
-    </div>
+            </li>
     )
 }
 

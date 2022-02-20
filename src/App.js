@@ -7,7 +7,8 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
-
+  
+  document.title = "Tienda de Smartphones";
   const [route, setRoute]= useState({
     path: 'list',
     id: 1,
