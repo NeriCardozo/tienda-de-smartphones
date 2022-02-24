@@ -5,22 +5,39 @@ const Context = createContext()
 export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
-    const addItem = (productToAdd, quantity) => {
+    const checkCount = () => {
+        return cart.length
+    }
+
+    const addItem = (productToAdd, qty) => {
 
         const newObj = {
             ...productToAdd,
-            quantity
+            qty: qty,
         }
 
         if(isInCart(productToAdd.id)) {
-            //Logica de producto repetido
+            // Guardamos en una variable el ID a cambiar
+            const prevItem = cart.find(i => i.id === productToAdd.id)
+            // Filtramos del carrito el producto
+            const newCartWithoutNewItem = cart.filter(i => i !== prevItem)
+            console.log(newCartWithoutNewItem);
+            // Creamos el nuevo objeto sumando las cantidades
+            const newQty = prevItem.qty + qty;
+            const newItem = {...prevItem, qty: newQty}
+            // Lo agregamos a Cart
+            const newCart = [...newCartWithoutNewItem, newItem]
+            setCart(newCart)
+            console.log(cart);
+
         } else {
             setCart([...cart, newObj])
         }
     }
 
     const removeItem = (id) => {
-
+        const newCart = cart.filter(i => i.id !== id);
+        setCart(newCart)
     }
 
     const isInCart = (id) => {
@@ -31,7 +48,8 @@ export const CartContextProvider = ({ children }) => {
         <Context.Provider value={{
             cart,
             addItem,
-            removeItem
+            removeItem,
+            checkCount
             }}>
             {children}
         </Context.Provider>

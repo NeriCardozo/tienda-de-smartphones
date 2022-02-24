@@ -3,6 +3,8 @@ import Item from './Item'
 import './ItemList.css'
 import {getProducts, getProductsByCategory} from './asyncmocks.js'
 import { useParams } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
 function ItemList() {
     const [productos, setProductos] = useState([]);
@@ -38,9 +40,11 @@ function ItemList() {
     }, [categoryName])
 
     return (
-        <div className="itemlist">
-            {loading ? <h1>Cargando...</h1>:productos.length ? productos.map( (p)=> <Item producto={p}/>):<h1>No se encontraron productos!</h1>}
-        </div>
+        <Box className="itemlist" sx={{ width: '85%' }}>
+            <Grid container spacing={5} columnSpacing={{ sm: 6}}>
+             {loading ? <h1>Cargando...</h1>:productos.length ? productos.map( (p)=> <Grid item xs={3}><Item producto={p}/></Grid>):<h1>No se encontraron productos!</h1>}
+            </Grid>
+        </Box>
     )
 }   
 

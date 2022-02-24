@@ -1,6 +1,6 @@
 .itemlist {
     padding: 0;
-    margin: 0;
+    margin: auto;
     display: grid;
     justify-content: space-evenly;
     grid-template-columns: auto auto auto auto;

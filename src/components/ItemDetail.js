@@ -19,7 +19,7 @@ function ItemDetail() {
             console.log(err)
         })
         return (() => {
-            setProducto()
+            setProducto();
         })          
     }, [id])
 

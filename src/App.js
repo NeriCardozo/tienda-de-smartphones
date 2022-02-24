@@ -13,8 +13,7 @@ function App() {
   return (
     <div className="App">
     <BrowserRouter >
-    {/* Comentamos el context ya que es para la siguiente entrega */}
-    {/* <CartContextProvider> */} 
+    <CartContextProvider> 
     <NavBar />
     <Routes>
 
@@ -24,7 +23,7 @@ function App() {
     <Route path= "/cart" element={<h1>Carrito</h1> } />
 
     </Routes>
-    {/* </CartContextProvider> */}
+    </CartContextProvider>
     </BrowserRouter>
     </div>
   );

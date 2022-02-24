@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { MdShoppingCart } from "react-icons/md";
 import './navbar.css'
+import CartContext from '../context/CartContext'
 
 function CartWidget() {
+    const {checkCount} = useContext(CartContext)
+
     return(
             <li href="#">
-            <MdShoppingCart /> 3
+            <MdShoppingCart /> {checkCount()}
             </li>
     )
 }

@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
+import CartContext from '../context/CartContext'
 import './ItemCount.css'
  function ItemCount(props)
  
+ 
  {
+    const { addItem, removeItem } = useContext(CartContext)
     const item = props.producto;
     const setAdded = props.setAdded;
      
@@ -14,7 +17,6 @@ import './ItemCount.css'
     const addOne = ()=> {
         if (count < item.stock){
             setCount(count + 1)
-            console.log()
         }else{
             alert("No hay suficiente stock!")
         }
@@ -28,8 +30,8 @@ import './ItemCount.css'
     }
 
     const onAdd = () => {
-        setAdded(true)
-        console.log(setAdded)
+        setAdded(true);
+        addItem(item, count)
     }
 
      return ( 
