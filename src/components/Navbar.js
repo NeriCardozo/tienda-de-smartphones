@@ -28,7 +28,7 @@ function NavBar() {
     <ul>
     {categories.map((c)=><Category category={c}> </Category>)}
     <Link to={`/Category/other`}> <li className="header_text">Otras marcas</li></Link>
-    <CartWidget />
+    <Link to="./cart"> <CartWidget /> </Link>
     </ul>
   </nav>
 

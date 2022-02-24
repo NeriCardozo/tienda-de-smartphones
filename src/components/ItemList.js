@@ -42,7 +42,7 @@ function ItemList() {
     return (
         <Box className="itemlist" sx={{ width: '85%' }}>
             <Grid container spacing={5} columnSpacing={{ sm: 6}}>
-             {loading ? <h1>Cargando...</h1>:productos.length ? productos.map( (p)=> <Grid item xs={3}><Item producto={p}/></Grid>):<h1>No se encontraron productos!</h1>}
+             {loading ? <h1>Cargando...</h1>:productos.length ? productos.map( (p)=> <Grid item xs={"auto"}><Item producto={p}/></Grid>):<h1>No se encontraron productos!</h1>}
             </Grid>
         </Box>
     )
