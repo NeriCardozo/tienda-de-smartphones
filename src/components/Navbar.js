@@ -21,6 +21,7 @@ function NavBar() {
     <div className="logo">
     <Link to="/"><img className='header_logo'
       src='./logo.png'
+      alt="logo"
 /></Link>
 </div>
   <nav>

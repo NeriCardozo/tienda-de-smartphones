@@ -7,6 +7,7 @@ import './ItemCount.css'
  
  {
     const item = props.producto;
+    const setAdded = props.setAdded;
      
     const [count, setCount] = useState(0);
 
@@ -25,6 +26,12 @@ import './ItemCount.css'
             alert("No tienes agregado este producto!")
         }
     }
+
+    const onAdd = () => {
+        setAdded(true)
+        console.log(setAdded)
+    }
+
      return ( 
 <CardActions>
   <Button onClick={addOne} size="small">+</Button>
@@ -32,7 +39,7 @@ import './ItemCount.css'
 {count}
   </Typography>
   <Button onClick={substractOne} size="small">-</Button>
-  <Button onClick={addOne} size="medium">Agregar al carrito</Button>
+  <Button onClick={onAdd} size="medium">Agregar al carrito</Button>
 </CardActions>
       );
  }

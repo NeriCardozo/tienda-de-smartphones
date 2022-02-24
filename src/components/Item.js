@@ -5,7 +5,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
 import './Item.css'
-import ItemCount from './ItemCount';
 
 function Item(props) {
 
@@ -39,7 +38,6 @@ return (
     Stock disponible: {item.stock} unidad/es
   </Typography>}
 </CardContent>
-{props.id ? <div><ItemCount producto={item} /></div>: <></>}
 </Card>
 )
 }

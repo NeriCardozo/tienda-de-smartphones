@@ -5,26 +5,26 @@ import NavBar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
+import { CartContextProvider } from './context/CartContext';
 
 function App() {
   
   document.title = "Tienda de Smartphones";
-  const [route, setRoute]= useState({
-    path: 'list',
-    id: 1,
-  })
   return (
     <div className="App">
     <BrowserRouter >
+    {/* Comentamos el context ya que es para la siguiente entrega */}
+    {/* <CartContextProvider> */} 
     <NavBar />
     <Routes>
 
     <Route path="/" element={<ItemListContainer />} />
     <Route path="/category/:categoryName" element={<ItemListContainer />} />
     <Route path="/detail/:id" element={<ItemDetailContainer />} />
-    <Route path="/detail/:id" element={<h1>Hola</h1>} />
+    <Route path= "/cart" element={<h1>Carrito</h1> } />
 
     </Routes>
+    {/* </CartContextProvider> */}
     </BrowserRouter>
     </div>
   );
