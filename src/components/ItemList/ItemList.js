@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Item from './Item'
+import Item from '../Item/Item'
 import './ItemList.css'
-import {getProducts, getProductsByCategory} from './asyncmocks.js'
+import {getProducts, getProductsByCategory} from '../asyncs/asyncmocks.js'
 import { useParams } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';

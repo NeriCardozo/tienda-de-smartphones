@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/Navbar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import NavBar from './components/Navbar/Navbar.js';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.js';
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import { CartContextProvider } from './context/CartContext';
-import CartList from './components/CartList';
+import CartList from './components/CartList/CartList.js';
 
 function App() {
   

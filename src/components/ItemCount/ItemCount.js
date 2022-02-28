@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import CartContext from '../context/CartContext'
+import CartContext from '../../context/CartContext'
 import './ItemCount.css'
  function ItemCount(props)
  

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Item from './Item'
+import Item from '../Item/Item'
 import { Link, useParams } from 'react-router-dom';
-import {getProduct} from './asyncmocks.js'
+import {getProduct} from '../asyncs/asyncmocks.js'
 import './ItemDetail.css'
-import ItemCount from './ItemCount';
+import ItemCount from '../ItemCount/ItemCount';
 
 function ItemDetail() {
     const [producto, setProducto] = useState({});

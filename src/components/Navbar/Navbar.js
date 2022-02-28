@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './navbar.css'
-import CartWidget from './CartWidget.js'
-import Category from './Category.js';
+import CartWidget from '../CartWidget/CartWidget.js'
+import Category from '../Category/Category.js';
 import { Link } from 'react-router-dom';
-import {getCategories} from './asyncmocks'
+import {getCategories} from '../asyncs/asyncmocks'
 
 function NavBar() {
   const [categories, setCategories] = useState([]);

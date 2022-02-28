@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
-import CartContext from '../context/CartContext';
-import CartRow from './CartRow';
+import CartContext from '../../context/CartContext';
+import CartRow from '../CartRow/CartRow';
 
 function CartList () {
 
