@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 import {getCategories} from '../asyncs/asyncmocks'
 
 function NavBar() {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState(["Apple","Samsung"]);
 
-  useEffect( () => {
-    if (categories){
-      getCategories().then(cats => {
-          setCategories(cats)
-        })}
-      },[categories])
+  // useEffect( () => {
+  //   if (categories){
+  //     getCategories().then(cats => {
+  //         setCategories(cats)
+  //       })}
+  //     },[categories])
 
   return (
     <div className="container">

@@ -4,11 +4,11 @@ import '../Navbar/navbar.css'
 import CartContext from '../../context/CartContext'
 
 function CartWidget() {
-    const {checkCount} = useContext(CartContext)
+    const {getCount} = useContext(CartContext)
 
     return(
             <li href="#">
-            <MdShoppingCart /> {checkCount()}
+            <MdShoppingCart /> {getCount()}
             </li>
     )
 }

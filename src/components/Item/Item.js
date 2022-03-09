@@ -16,7 +16,7 @@ return (
   component="img"
   alt=""
   height="400"
-  image={item.url}
+  image={item.img}
 />
 <CardContent>
   <p>
