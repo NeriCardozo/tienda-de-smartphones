@@ -9,8 +9,10 @@ import './ItemCount.css'
  
  {
     const { addItem } = useContext(CartContext)
-    const item = props.producto;
+    const item = props.item;
     const setAdded = props.setAdded;
+
+    console.log(item)
      
     const [count, setCount] = useState(0);
 

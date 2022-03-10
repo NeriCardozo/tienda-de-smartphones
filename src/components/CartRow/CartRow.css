@@ -1,4 +1,8 @@
+.cartRow {
+    margin: 25px
+}
+
 .img{
     max-width: 35vw;
-    max-height: 50vh;
+    height: 35vh;
 }

@@ -81,8 +81,9 @@ export const CartContextProvider = ({ children }) => {
         let sum = 0;
         console.log(cart)
         for (let i = 0; i < cart.length; i++) {
-            sum = sum + (cart[i].qty * cart[i].precio);
+            sum = sum + (cart[i].qty * cart[i].price);
         }
+        console.log(sum)
         return sum;
     }
 

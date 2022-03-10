@@ -6,9 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
 import './Item.css'
 
-function Item(props) {
-
-  const item = props.producto;
+function Item({item}) {
 
 return (
   <Card className="item" sx={{ maxWidth: 345 }}>
@@ -26,9 +24,9 @@ return (
     Ram: {item.ram}GB
   </Typography>
   <Typography variant="body2" color="text.secondary">
-    Precio: ${item.precio}
+    Precio: ${item.price}
   </Typography>
-    {!props.id? 
+    {item.id? 
     <Link to={`/detail/${item.id}`}>
     <Typography variant="body2" color="text.secondary">
     Ver el producto

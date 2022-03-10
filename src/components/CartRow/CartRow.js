@@ -4,6 +4,7 @@ import './CartRow.css'
 
 function CartRow(props) {
     const i = props.item;
+    console.log(i)
     const { removeItem, addOne, substractOne } = useContext(CartContext)
 
     const remove = ()=> {
@@ -16,12 +17,16 @@ function CartRow(props) {
         substractOne(i.id)
     }
 
+    if(i.qty === 0 ){
+        return false;
+    }
+
     return (
-        <div className='cartrow'>
-                <img className="img" src={i.url} alt="" />
+        <div className='cartRow'>
+                <img className="img" src={i.img} alt="" />
                 <div className="details">
-                <p>{i.nombre}</p>
-                <p>Precio individual: ${i.precio}</p>
+                <p>{i.name}</p>
+                <p>Precio individual: ${i.price}</p>
                 <p>Cantidad seleccionada: {i.qty}</p>
                 <button onClick={add}>Agregar 1 unidad</button>
                 <button onClick={remove}>Borrar item</button>
