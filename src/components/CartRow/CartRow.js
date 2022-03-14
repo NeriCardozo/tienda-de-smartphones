@@ -4,7 +4,6 @@ import './CartRow.css'
 
 function CartRow(props) {
     const i = props.item;
-    console.log(i)
     const { removeItem, addOne, substractOne } = useContext(CartContext)
 
     const remove = ()=> {

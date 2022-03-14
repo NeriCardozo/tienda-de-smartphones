@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Item from '../Item/Item'
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount';
 
@@ -9,7 +9,7 @@ function ItemDetail({product}) {
 
     return (
         <div className="itemdetail">
-              <Item item={product}/>
+              <Item detail={true} item={product}/>
               {
                   added === false ?  
                   <ItemCount item={product} setAdded ={setAdded} />:

@@ -11,7 +11,7 @@ function ItemDetailContainer(){
     const {id} = useParams()
 
     useEffect(() => {
-        const product = new Promise((resolve, reject) => {
+        const getProduct = new Promise((resolve, reject) => {
             resolve(getProductById(id));
           }).catch((err) =>{
             console.log(err)

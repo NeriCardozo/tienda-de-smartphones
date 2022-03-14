@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
 import './Item.css'
 
-function Item({item}) {
+function Item({item, detail = false}) {
 
 return (
   <Card className="item" sx={{ maxWidth: 345 }}>
@@ -18,7 +18,7 @@ return (
 />
 <CardContent>
   <p>
-    {item.nombre}
+    {item.name}
   </p>
   <Typography variant="body2" color="text.secondary">
     Ram: {item.ram}GB
@@ -26,15 +26,19 @@ return (
   <Typography variant="body2" color="text.secondary">
     Precio: ${item.price}
   </Typography>
-    {item.id? 
+    {!detail? 
     <Link to={`/detail/${item.id}`}>
     <Typography variant="body2" color="text.secondary">
     Ver el producto
   </Typography>
-    </Link>: 
+    </Link>: item.stock > 0 ?
     <Typography variant="body2" color="text.secondary">
     Stock disponible: {item.stock} unidad/es
-  </Typography>}
+  </Typography>:
+      <Typography variant="body2" color="text.secondary">
+      No hay unidades disponibles
+      </Typography>
+  }
 </CardContent>
 </Card>
 )

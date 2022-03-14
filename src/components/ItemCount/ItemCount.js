@@ -12,7 +12,6 @@ import './ItemCount.css'
     const item = props.item;
     const setAdded = props.setAdded;
 
-    console.log(item)
      
     const [count, setCount] = useState(0);
 
@@ -32,8 +31,13 @@ import './ItemCount.css'
     }
 
     const onAdd = () => {
-        setAdded(true);
-        addItem(item, count)
+        if(count !== 0){
+
+            setAdded(true);
+            addItem(item, count)
+        }else{
+            alert('No seleccionaste la cantidad')
+        }
     }
 
      return ( 

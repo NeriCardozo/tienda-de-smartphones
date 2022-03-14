@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import NavBar from './components/Navbar/Navbar.js';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
@@ -6,6 +6,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import { CartContextProvider } from './context/CartContext';
 import CartList from './components/CartList/CartList.js';
+import CheckoutForm from './components/CheckoutForm/CheckoutForm';
 
 function App() {
   
@@ -21,6 +22,7 @@ function App() {
     <Route path="/category/:categoryName" element={<ItemListContainer />} />
     <Route path="/detail/:id" element={<ItemDetailContainer />} />
     <Route path= "/cart" element={<CartList /> } />
+    <Route path="/checkout" element={<CheckoutForm />} />
 
     </Routes>
     </CartContextProvider>

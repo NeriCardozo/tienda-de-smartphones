@@ -24,7 +24,8 @@ export const getCategories = () => {
     const collectionRef = collection(db, 'items')  
     const result = getDocs(collectionRef).then(response => {
       const categoryList = response.docs.map(doc => {
-        return doc.data().brand});
+            return doc.data().brand;
+          })
 
         return categoryList;
   })

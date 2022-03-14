@@ -14,18 +14,12 @@ export const CartContextProvider = ({ children }) => {
         }
 
         if(isInCart(productToAdd.id)) {
-            // Guardamos en una variable el ID a cambiar
             const prevItem = cart.find(i => i.id === productToAdd.id)
-            // Filtramos del carrito el producto
             const newCartWithoutNewItem = cart.filter(i => i !== prevItem)
-            console.log(newCartWithoutNewItem);
-            // Creamos el nuevo objeto sumando las cantidades
             const newQty = prevItem.qty + qty;
             const newItem = {...prevItem, qty: newQty}
-            // Lo agregamos a Cart
             const newCart = [...newCartWithoutNewItem, newItem]
             setCart(newCart)
-            console.log(cart);
 
         } else {
             setCart([...cart, newObj])
@@ -44,28 +38,21 @@ export const CartContextProvider = ({ children }) => {
 
 
     const addOne = (id) => {
-        // Guardamos en una variable el ID a cambiar
         const prevItem = cart.find(i => i.id === id)
-        // Filtramos del carrito el producto
         const newCartWithoutNewItem = cart.filter(i => i !== prevItem)
-        // Creamos el nuevo objeto sumando las cantidades
         const newQty = prevItem.qty + 1;
         const newItem = {...prevItem, qty: newQty}
-        // Lo agregamos a Cart
         const newCart = [...newCartWithoutNewItem, newItem]
         setCart(newCart)
     }
 
     
     const substractOne = (id) => {
-        // Guardamos en una variable el ID a cambiar
         const prevItem = cart.find(i => i.id === id)
-        // Filtramos del carrito el producto
         const newCartWithoutNewItem = cart.filter(i => i !== prevItem)
-        // Creamos el nuevo objeto sumando las cantidades
         const newQty = prevItem.qty - 1;
         const newItem = {...prevItem, qty: newQty}
-        // Lo agregamos a Cart
+
         const newCart = [...newCartWithoutNewItem, newItem]
         setCart(newCart)
     }
@@ -79,12 +66,13 @@ export const CartContextProvider = ({ children }) => {
     
     const getTotalPrice =  () => {
         let sum = 0;
-        console.log(cart)
         for (let i = 0; i < cart.length; i++) {
             sum = sum + (cart[i].qty * cart[i].price);
         }
-        console.log(sum)
         return sum;
+    }
+    const clearCart = () => {
+        setCart([]);
     }
 
 
@@ -97,6 +85,7 @@ export const CartContextProvider = ({ children }) => {
             addOne,
             substractOne,
             getTotalPrice,
+            clearCart
             }}>
             {children}
         </Context.Provider>

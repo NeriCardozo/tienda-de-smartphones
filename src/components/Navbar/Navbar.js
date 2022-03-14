@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './navbar.css'
 import CartWidget from '../CartWidget/CartWidget.js'
 import Category from '../Category/Category.js';
-import { getDocs, collection} from 'firebase/firestore';
-import { db, getCategories } from '../../services/firebase/firebaseConfig';
+import { getCategories } from '../../services/firebase/firebaseConfig';
 import { Link } from 'react-router-dom';
 
 function NavBar() {
@@ -33,8 +32,8 @@ function NavBar() {
 </div>
   <nav>
     <ul>
-    {categories.map((c)=><Category key={c.id} category={c} > </Category>)}
-    <Link to={`/Category/other`}> <li className="header_text">Otras marcas</li></Link>
+    {categories.map((c)=><Category key={c.id} category={c} />)}
+    <Link to={'/Category/other'}> <li className="header_text">Otras marcas</li></Link>
     <Link to="./cart"> <CartWidget /> </Link>
     </ul>
   </nav>

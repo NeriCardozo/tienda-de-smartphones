@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import CartContext from '../../context/CartContext';
 import CartRow from '../CartRow/CartRow';
 import CartSummary from '../CartSummary/CartSummary';
@@ -15,7 +15,7 @@ function CartList () {
             <div className='cartlist'>
             {
                 cart.map( (i)=> 
-                <CartRow item={i} />)
+                <CartRow key={i.id} item={i} />)
             }
         <CartSummary/>
             </div>
