@@ -5,14 +5,13 @@ import { getFirestore,  getDocs, getDoc, doc, collection, query, where } from "f
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyBTTJerNdLXWGrYJjPSxawTU9YydtZvPRM",
-    authDomain: "tienda-de-smartphones-cardozo.firebaseapp.com",
-    projectId: "tienda-de-smartphones-cardozo",
-    storageBucket: "tienda-de-smartphones-cardozo.appspot.com",
-    messagingSenderId: "203493812307",
-    appId: "1:203493812307:web:a2a0bb382946650988bea6"
+  const firebaseConfig = {
+    apiKey: process.env.REACT_APP_apiKey, 
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
   };
 
 // Initialize Firebase

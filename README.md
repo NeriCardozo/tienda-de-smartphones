@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Tienda de Smartphones
+## Proyecto basado en React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![N|Solid](https://madewithreactjs.com/images/powered-madewithreactjs--white.png?1)](https://nodesource.com/products/nsolid)
 
-## Available Scripts
 
-In the project directory, you can run:
+Tienda de Smartphones es un ecommerce de smartphones,
+utilizando React para el front y Firebase para el backend.
 
-### `npm start`
+## Scripts disponibles
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `npm start` 
+Script utilizado para inicializar el proyecto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Recorrido feliz del proceso de compra
 
-### `npm test`
+- 1: Navegar por los productos desde el Home o desde las categorías clickeando el NavBar
+- 2: Entrar al detalle del producto y seleccionar la cantidad deseada
+- 3: Una vez agregado el/los producto/s, clickear en "Ir al carrito" dentro del detalle del producto o clickear el logo de Carrito en el NavBar
+- 4: Clickear el botón de "Confirmar compra" para dirigirse al formulario donde se ingresarán los datos del comprador
+- 5: Acceder al link de wa.me para confirmar la compra por WhatsApp con el vendedor
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ejemplo de recorrido en GIF:
 
-### `npm run build`
+[![N|Solid](https://media.giphy.com/media/OWohtIv6hKpguvJpcx/giphy.gif)](https://nodesource.com/products/nsolid)
+## Tecnologías utilizadas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ReactJs 
+- MUI - Material UI
+- NPM
+- react-router-dom
+- Firebase - Firestore
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Instalación y uso
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Para instalar todas las dependencias deberás utilizar el comando "npm install"
+Luego, deberás configurar tus credenciales de Firebase en el archivo "src\services\firebase\firebaseConfig.js"
+Deberás crear la colección "items" con sus ítems adentro. Los campos principales son:
+| Campo | Ttipo de campo
+| ----- | -----
+| brand | string
+| ram | number
+| img | string (url de la imagen)
+| name | string
+| price | number
+|stock | number
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+El resto de campos son opcionales.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+También deberás crear la colección "orders" para que se guarden tus órdenes.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Rutas y renderizado de componentes por ruta
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Ruta | Componente | Parámetros? 
+| ------ | ------ | ------ |
+| / | ItemListContainer | No
+| /category | ItemListContainer | Sí, se envía un categoryName que es el campo "brand" de los item
+| /detail | ItemDetailContainer | Sí, se envía el id del ítem a detallar
+| /cart | CartList | No
+| Checkout | CheckoutForm | No
+| Siempre se muestra | NavBar | No
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -11,9 +11,7 @@ function ItemDetail({product}) {
         <div className="itemdetail">
               <Item detail={true} item={product}/>
               {
-                  added === false ?  
-                  <ItemCount item={product} setAdded ={setAdded} />:
-                  <Link to={`/cart`}> <p>Ir al carrito</p></Link>
+                  added === false ? <ItemCount item={product} setAdded ={setAdded} />:<Link to={`/cart`}> <p>Ir al carrito</p></Link>
                 }
               </div>
         )

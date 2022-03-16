@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import CartContext from '../../context/CartContext';
 import './checkoutForm.css';
 import { db } from '../../services/firebase/firebaseConfig'
 import { writeBatch, getDocs, collection, addDoc, Timestamp, where, query, documentId } from 'firebase/firestore'
 import CheckoutItem from '../CheckoutItem/CheckoutItem'
-import { Redirect } from 'react-router-dom';
 
 function CheckoutForm() {
   const [isOrderPlaced, setIsOrderPlaced] = useState(false)
@@ -24,7 +23,7 @@ function CheckoutForm() {
       return (<h1>No tienes productos agregados!</h1>)
     }
 
-    const objContact = {
+    const buyer = {
       name,
       email,
       phone,
@@ -42,7 +41,7 @@ function CheckoutForm() {
       }else{
         setIsOrderPlaced(false);
         const order = {
-          buyer: objContact,
+          buyer: buyer,
           items: cart,
           total: getTotalPrice(),
           date: Timestamp.fromDate(new Date())
@@ -51,6 +50,7 @@ function CheckoutForm() {
         const itemIds = order.items.map(i => i.id)
 
         const outOfStock = [];
+
           getDocs(query(collection(db, 'items'),where(documentId(), 'in', itemIds))).then(response => {
             response.docs.forEach((docSnapshot) => {
                         if(docSnapshot.data().stock >= order.items.find(item => item.id === docSnapshot.id).qty) {
@@ -73,7 +73,7 @@ function CheckoutForm() {
                             setIsOrderPlaced(false);
                           })
                         }}
-          )
+                )   
         }
       }
       if(!isOrderPlaced){
